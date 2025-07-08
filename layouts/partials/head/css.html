@@ -6,9 +6,10 @@
   {{ $css := slice $base $app | resources.Concat "css/main.css" -}}
   <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
 {{ else -}}
-  {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-  {{ $app := resources.Get "scss/app.scss" | toCSS $options | postCSS (dict "config" "config/postcss.config.js") -}}
-  {{ $css := slice $base $app | resources.Concat "css/main.css" -}}
-  {{ $secureCSS := $css | resources.Fingerprint "sha512" -}}
+  {{ $options := dict "targetPath" "main.css" "outputStyle" "compressed" "includePaths" (slice "node_modules") }}
+  {{ $app := resources.Get "scss/app.scss" | toCSS $options }}
+  {{ $css := slice $base $app | resources.Concat "css/main.css" }}
+  {{ $css = $css | postCSS }}
+  {{ $secureCSS := $css | minify | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous">
 {{ end -}}
