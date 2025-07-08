@@ -21,11 +21,9 @@
 
     </div>
 
-    <div class="self-center flex flex-col w-full md:w-2/5">
-
-{{ partial "content/social-media.html" . }}
-
-    </div>
+    {{/* <div class="self-center flex flex-col w-full md:w-2/5">
+      {{ partial "content/social-media.html" . }}
+    </div> */}}
     
   </div>
 
@@ -34,12 +32,15 @@
       {{ range .Site.Menus.main }}
         <li><a class="decoration-auto hover:underline font-semibold" href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
+      {{- range site.Taxonomies.categories }}
+        <li><a class="decoration-auto hover:underline font-semibold" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+      {{- end }}
     </ul>
   </div>
 
   <div class="border-t pt-4">
 
-    <p class="text-sm">Copyright © {{ now.Year }}. All rights reserved. <a href="https://insertapps.com/en/" target="_blank" rel="noopener">Insertapps.com</a></p>
+    <p class="text-sm">Copyright © {{ now.Year }}. All rights reserved.</p>
 
   </div>
   

@@ -1660,20 +1660,20 @@ video {
   .lg\:prose-lg :where(h2):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
     font-size: 1.6666667em;
     margin-top: 1.8666667em;
-    margin-bottom: 1.0666667em;
+    margin-bottom: 0.53333335em; /* Было 1.0666667em */
     line-height: 1.3333333;
   }
 
   .lg\:prose-lg :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
     font-size: 1.3333333em;
     margin-top: 1.6666667em;
-    margin-bottom: 0.6666667em;
+    margin-bottom: 0.33333335em; /* Было 0.6666667em */
     line-height: 1.5;
   }
 
   .lg\:prose-lg :where(h4):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
     margin-top: 1.7777778em;
-    margin-bottom: 0.4444444em;
+    margin-bottom: 0.2222222em; /* Было 0.4444444em */
     line-height: 1.5555556;
   }
 

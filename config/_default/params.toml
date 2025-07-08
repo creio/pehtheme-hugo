@@ -1,0 +1,37 @@
+[author]
+  name = 'Fauzan My'
+  homepage = 'https://fzn.my.id/'
+  bio = 'Debitis assumenda esse dignissimos aperiam delectus maxime tenetur repudiandae dolore'
+  avatar = '/images/nasa-astronaut-unsplash.jpg'
+  twitter = 'https://twitter.com/insertapps'
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#778DD3"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [900, 800, 700, 600, 500]
+lqipWidth = "20x"
+smallLimit = "300"
+
+# Images
+imageResponsive = true
+imageConvertTo = "webp"
+imageImageSizes = ["480","720","1080","1280","1600","2048"]
+singleSize = false
+imageAddClass = "img-fluid lazyload blur-up"
+
+### Image template
+profileImage = "nasa-astronaut-unsplash.jpg" # put in `./assets/images/`
+defaultImage = "default-placeholder.png" # put in `./assets/images/`
+fillImage = "1270x740 Center" # normalize image size
+
+[options]
+  flexSearch = true
+  searchSectionsShow = []
+  searchSectionsIndex = []

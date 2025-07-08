@@ -22,27 +22,19 @@ disqusShortname = '' # <- Get form here : https://disqus.com
   pagerSize = 6 # <- Set the desired number of posts per page
 
 [menu] # Menu management
-  [[menu.main]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
+  # [[menu.main]]
+  #   name = 'Home'
+  #   pageRef = '/'
+  #   weight = 10
   [[menu.main]]
     name = 'About'
     pageRef = '/about'
     weight = 15
   [[menu.main]]
-    name = 'Tags'
-    pageRef = '/tags'
+    name = 'Contacts'
+    pageRef = '/contacts'
     weight = 20
-  [[menu.main]]
-    name = 'Taxonomy'
-    pageRef = '/tags/space/'
-    weight = 25
-
-[module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.147.9"
-  [module.mounts] # Directing the static folder to assets.
-    source = 'assets'
-    target = 'static'
+  # [[menu.main]]
+  #   name = 'Taxonomy'
+  #   pageRef = '/tags/space/'
+  #   weight = 25

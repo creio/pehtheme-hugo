@@ -29,11 +29,11 @@
           
           <li class="font-semibold my-2">{{ .Site.Params.Author.name }}</li>
           
-          <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
+          {{/* <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
             {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
             {{- $dateHuman := .Date | time.Format ":date_long" -}}
             <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-          </li>
+          </li> */}}
 
           <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
             {{ .ReadingTime }} min read
@@ -83,13 +83,13 @@
 
     <footer id="content-footer" class="not-prose">
 
-      <div id="comment" class="border p-8 bg-zinc-100 rounded-2xl">
+      {{/* <div id="comment" class="border p-8 bg-zinc-100 rounded-2xl">
 
         <h2 class="text-xl font-semibold">Comment</h2>
 
         <p>Disqus comment here</p>
 
-        {{- /* template "_internal/disqus.html" . */ -}}
+        {{- template "_internal/disqus.html" . -}}
 
       </div>
 
@@ -130,13 +130,31 @@
 
         </ul>
         
-      </div>
+      </div> */}}
 
       <div id="related-post" class="">
 
         <h2 class="text-xl md:text-2xl font-bold mb-6 md:mb-8">Recommended for You</h2>
 
-        {{- $related := .Site.RegularPages.Related . | first 2 -}}
+        {{ $allPosts := where .Site.RegularPages "Section" "posts" }}
+        {{/* 1. Посты с максимальным совпадением тегов */}}
+        {{ $related := $allPosts.Related . | first 2 }}
+
+        {{/* 2. Посты с хотя бы одним общим тегом */}}
+        {{ if lt (len $related) 2 }}
+          {{ $remaining := sub 2 (len $related) }}
+          {{ $tagged := where $allPosts "Params.tags" "intersect" (.Params.tags | default slice)
+              | complement $related
+              | first $remaining }}
+          {{ $related = $related | union $tagged }}
+        {{ end }}
+
+        {{/* 3. Последние посты как fallback */}}
+        {{ if lt (len $related) 2 }}
+          {{ $remaining := sub 2 (len $related) }}
+          {{ $latest := $allPosts | complement $related | first $remaining }}
+          {{ $related = $related | union $latest }}
+        {{ end }}
 
         {{- with $related -}}
 

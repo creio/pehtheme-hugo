@@ -14,6 +14,23 @@ Renders a menu for the given menu ID.
   <nav id="menu-bar" class="block mt-3 close">
     <ul class="flex items-center flex flex-nowrap whitespace-nowrap overflow-x-auto space-x-4">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+
+      {{/* Добавляем категории после основного меню */}}
+      {{- range site.Taxonomies.categories }}
+        {{- $isCurrentCategory := false }}
+        {{- if $page.IsNode }}
+          {{- $isCurrentCategory = eq $page.Title .Page.Title }}
+        {{- else if $page.Params.categories }}
+          {{- $isCurrentCategory = in $page.Params.categories .Page.Title }}
+        {{- end }}
+
+        <li class="my-2 py-1">
+          <a href="{{ .Page.RelPermalink }}"
+             class="rounded-full border px-6 py-2 bg-zinc-100 hover:bg-zinc-200 {{ if $isCurrentCategory }}border-zinc-400 bg-zinc-300{{ end }}">
+            {{ .Page.Title | humanize }} ({{ .Count }})
+          </a>
+        </li>
+      {{- end }}
     </ul>
   </nav>
 {{- end }}
@@ -36,7 +53,7 @@ Renders a menu for the given menu ID.
       {{- /* Add the "aria-current" attribute */}}
       {{- $attrs = merge $attrs (dict "aria-current" "true") }}
     {{- end }}
-    <li class="my-2">
+    <li class="my-2 py-1">
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
