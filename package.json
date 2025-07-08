@@ -6,7 +6,7 @@
   "scripts": {
     "create": "exec-bin node_modules/.bin/hugo new",
     "dev:generate": "npx tailwindcss -i ./assets/input.css -o ./themes/pehtheme-hugo/assets/css/main.css -w",
-    "dev": "exec-bin node_modules/.bin/hugo server --bind=0.0.0.0 --disableFastRender",
+    "dev": "exec-bin node_modules/.bin/hugo server --bind=0.0.0.0 --disableFastRender --ignoreCache",
     "build:hugo": "hugo --gc --minify",
     "build:preview": "npm run build -D -F",
     "build:generate": "npx tailwindcss -i ./assets/input.css -o ./themes/pehtheme/static/assets/css/main.css",

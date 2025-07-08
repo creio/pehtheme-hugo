@@ -1,12 +1,24 @@
-{{- with resources.Get "js/insertoggle.js" }}
-  {{- if eq hugo.Environment "development" }}
-    {{- with . | js.Build }}
-      <script src="{{ .RelPermalink }}"></script>
-    {{- end }}
-  {{- else }}
-    {{- $opts := dict "minify" true }}
-    {{- with . | js.Build $opts | fingerprint }}
-      <script defer src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
-    {{- end }}
-  {{- end }}
+{{ $flexSearch := resources.Get "js/flexsearch.bundle.min.js" -}}
+{{ $slice := slice $flexSearch -}}
+
+{{ $insertoggle := resources.Get "js/insertoggle.js" -}}
+{{ $slice = $slice | append $insertoggle -}}
+
+{{ $indexTemplate := resources.Get "js/index.js" -}}
+{{ $index := $indexTemplate | resources.ExecuteAsTemplate "index.js" . -}}
+
+{{ $js := $slice | resources.Concat "main.js" -}}
+
+{{- if eq hugo.Environment "development" }}
+
+  <script src="{{ $js.RelPermalink }}" defer></script>
+  <script src="{{ $index.Permalink }}" defer></script>
+
+{{- else }}
+  {{ $js := $js | minify | fingerprint "sha512" -}}
+  {{ $index := $index | minify | fingerprint "sha512" -}}
+
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
+
 {{- end }}

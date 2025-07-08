@@ -1,6 +1,6 @@
-baseURL = 'https://pehtheme-hugo.netlify.app/'
+baseURL = 'https://pehtheme-ads.netlify.app/'
 languageCode = 'en-us'
-title = 'Pehtheme'
+title = 'RocketMyAds'
 theme = 'pehtheme-hugo'
 
 summaryLength = '20' # <- 20 words are approximately 160 characters
@@ -42,7 +42,7 @@ disqusShortname = '' # <- Get form here : https://disqus.com
 [module]
   [module.hugoVersion]
     extended = false
-    min = "0.116.0"
+    min = "0.147.9"
   [module.mounts] # Directing the static folder to assets.
     source = 'assets'
     target = 'static'
