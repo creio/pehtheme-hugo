@@ -4,33 +4,32 @@
   "description": "An open-source Hugo theme lovingly crafted using Tailwind CSS.",
   "main": "index.js",
   "scripts": {
-    "create": "exec-bin node_modules/.bin/hugo/hugo new",
+    "create": "exec-bin node_modules/.bin/hugo new",
     "dev:generate": "npx tailwindcss -i ./assets/input.css -o ./themes/pehtheme-hugo/assets/css/main.css -w",
-    "dev": "exec-bin node_modules/.bin/hugo/hugo server --bind=0.0.0.0 --disableFastRender",
+    "dev": "exec-bin node_modules/.bin/hugo server --bind=0.0.0.0 --disableFastRender",
     "build:hugo": "hugo --gc --minify",
     "build:preview": "npm run build -D -F",
     "build:generate": "npx tailwindcss -i ./assets/input.css -o ./themes/pehtheme/static/assets/css/main.css",
-    "build": "exec-bin node_modules/.bin/hugo/hugo --gc --minify",
-    "build:preview": "npm run build -D -F",
+    "build": "exec-bin node_modules/.bin/hugo --gc --minify",
     "clean": "shx rm -rf public resources",
     "clean:install": "shx rm -rf package-lock.json node_modules "
   },
-  "keywords": ["hugo", "tailwindcss"],
+  "keywords": [
+    "hugo",
+    "tailwindcss"
+  ],
   "author": "cretm",
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
+    "exec-bin": "^1.0.0",
+    "flexsearch": "^0.7.21",
+    "hugo-extended": "^0.147.9",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
-    "tailwindcss": "^3.3.3",
-    "exec-bin": "^1.0.0",
-    "flexsearch": "^0.7.21",
-    "hugo-installer": "^3.1",
-    "shx": "^0.3.3"
-  },
-  "otherDependencies": {
-    "hugo": "0.116.0"
+    "shx": "^0.3.3",
+    "tailwindcss": "^3.3.3"
   }
 }
