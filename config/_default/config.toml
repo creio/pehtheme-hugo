@@ -1,3 +1,9 @@
+# add redirects/headers
+[outputs]
+home = ["HTML", "RSS", "REDIRECTS", "HEADERS", "SITEMAP"]
+page = ["HTML", "RSS", "REDIRECTS", "HEADERS", "SITEMAP"]
+section = ["HTML", "RSS", "SITEMAP"]
+
 # remove .{ext} from text/netlify
 [mediaTypes."text/netlify"]
 suffixes = [""]
@@ -26,15 +32,16 @@ isPlainText = true
 noUgly = true
 rel  = "sitemap"
 
+[sitemap]
+  changefreq = "weekly"
+  disable = false
+  filename = "sitemap.xml"
+  priority = 0.5
+
 [caches]
   [caches.getjson]
     dir = ":cacheDir/:project"
     maxAge = "10s"
-
-[sitemap]
-  changefreq = "weekly"
-  filename = "sitemap.xml"
-  priority = 0.5
 
 [taxonomies]
   category = "categories"
