@@ -53,7 +53,20 @@ To get started with Pehtheme Hugo, follow these steps:
     hugo server
     ```
 
+```bash
+# instal deps
+npm install
+# server
+npm run dev
+# build
+npm run build
+```
+
 ## Configuration
+
+```bash
+config/
+```
 
 You can configure the following settings for your Hugo project
  by adding or modifying these lines in your config file `hugo.toml`:
@@ -72,58 +85,28 @@ summaryLength = 20 # (approximately 160 characters for 20 words)
 
 ## Custom Theme
 
-1. Ensure you have NodeJS installed on your desktop.
-
-2. Copy the Node.js configuration files from the `exampleSite` directory to the root of your Hugo project:
+### Ensure you have NodeJS installed on your desktop.
 
     ```bash
-        exampleSite/
         ├── package.json
         ├── postcss.config.js
         └── tailwind.config.js
     ``` 
 
-3. Additionally, copy the `exampleSite/input.css` file to the `assets/input.css` directory of your Hugo project.
-
-4. Run the following command to install necessary dependencies:
+### Run the following command to install necessary dependencies:
 
     ```bash
     npm install
     ```
 
-5. Customize the theme with Tailwind CSS using the following command:
+### Customize the theme with Tailwind CSS using the following command:
 
     ```bash
-    npm run dev
+    npm run dev:generate
     ```
 
-6. To build the website, execute the command:
+### To build the website, execute the command:
 
     ```bash
-    npm run build
-    ```
-
-## License
-
-Pehtheme Hugo is MIT Licensed. For more details, see the [LICENSE](https://github.com/fauzanmy/pehtheme-hugo/blob/main/LICENSE) file.
-
-## Logo Icon
-
-Egg fried icon source: [Bootstrap Icons - Egg Fried](https://icons.getbootstrap.com/icons/egg-fried/)
-
-## Photo Credits
-
-Image credits used in the live preview:
-
-    ```
-    Images resource:
-    - https://unsplash.com/photos/Smeer5L0tXM
-    - https://unsplash.com/photos/2q6C5zDJOsg
-    - https://unsplash.com/photos/UNd3lRKhwSw
-    - https://unsplash.com/photos/Ed2AELHKYBw
-    - https://unsplash.com/photos/rTZW4f02zY8
-    - https://unsplash.com/photos/OtXJhYjbKeg
-    - https://unsplash.com/photos/ZPP-zP8HYG0
-    - https://unsplash.com/photos/ydGRmobx5jA
-    - https://pixabay.com/vectors/email-newsletter-email-marketing-3249062/
+    npm run build:generate
     ```

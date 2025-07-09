@@ -1,0 +1,17 @@
+{{ $src := .src }}
+{{ $image := resources.Get $src }}
+
+{{ if $image }}
+  {{ $processed := $image.Fill "800x600 Center q85" }}
+  <img src="{{ $processed.RelPermalink }}"
+       alt="{{ .alt }}"
+       class="{{ .class }}"
+       loading="lazy">
+{{ else }}
+
+  <img src="{{ $src }}"
+       alt="{{ .alt }}"
+       class="{{ .class }}"
+       loading="lazy">
+  {{ warnf "Image not found: %s" $src }}
+{{ end }}

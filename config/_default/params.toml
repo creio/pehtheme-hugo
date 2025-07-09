@@ -9,12 +9,6 @@ mainSections = 'posts'
   avatar = '/images/nasa-astronaut-unsplash.jpg'
   twitter = 'https://twitter.com/insertapps'
 
-## Sitelinks Search Box
-siteLinksSearchBox = false
-
-## Chrome Browser
-themeColor = "#778DD3"
-
 # Images (@thulite/images)
 [thulite_images]
   [thulite_images.defaults]
@@ -25,23 +19,6 @@ themeColor = "#778DD3"
     sizes = "auto" # 100vw (default), 75vw, or auto for example
     process = "fill 1600x900" # "fill 1600x900" or "fill 2100x900" for example
     lqip = "750x webp q80" # "16x webp q20" or "21x webp q20" for example
-
-# Images
-# quality = 60
-# bgColor = "#сссссс"
-# imageResponsive = true
-# landscapePhotoWidths = [2048, 1920, 1600, 1366, 1024, 768, 480]
-# portraitPhotoWidths = [1600, 1280, 1080, 900, 768, 640, 480]
-# smallLimit = "300"
-# lqipWidth = "20x"
-# imageConvertTo = "webp"
-# imageImageSizes = ["480","720","1080","1280","1600","2048"]
-# singleSize = false
-# imageAddClass = "img-fluid lazyload blur-up"
-# ### Image template
-# profileImage = "nasa-astronaut-unsplash.jpg" # put in `./assets/images/`
-# defaultImage = "default-placeholder.png" # put in `./assets/images/`
-# fillImage = "750x450 Center" # normalize image size
 
 [options]
   lazySizes = true

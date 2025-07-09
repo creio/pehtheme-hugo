@@ -4,17 +4,30 @@
 
 	<figure class="w-full aspect-video overflow-hidden rounded-3xl">
 
+    {{ $page := . }}
 		{{- if .Params.image }}
 
 		  {{- if (strings.HasPrefix .Params.image "http") }}
 
-			<img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ .Params.image }}" alt="{{ $.Name }}" style="width: 100%; height: 100%; object-fit: cover;">
+			<img loading="lazy" class="img-fluid lazyload blur-up object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ .Params.image }}" alt="{{ $.Name }}" style="width: 100%; height: 100%; object-fit: cover;">
 
 		  {{- else }}
 
 			{{- with $imgcard := resources.Get .Params.image -}}
-			  {{- $imgcard := $imgcard.Process "resize 750x" -}}
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imgcard.Permalink }}" alt="{{ $.Name }}" width="{{ $imgcard.Width }}" height="{{ $imgcard.Height }}">
+        {{- $opts := dict
+          "page" $page
+          "src" $imgcard.RelPermalink
+          "sizes" "auto"
+          "formats" (slice "webp" "jpeg")
+          "process" "fill 750x500"
+          "lqip" "750x webp"
+          "decoding" "auto"
+          "fetchpriority" "auto"
+          "loading" "lazy"
+          "alt" $.Name
+          "class" "object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer"
+        }}
+        {{- partial "img" $opts }}
 			{{- end }}
 
 		  {{- end }}
@@ -27,7 +40,7 @@
 
 		{{/* <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ .Date.Format "Jan 02, 2006" }}</time> */}}
 
-		<h3 class="my-4 text-2xl font-bold">{{ .LinkTitle }}</h3>
+		<h3 class="mb-4 text-2xl font-bold">{{ .LinkTitle }}</h3>
 
 		<p class="text-normal leading-normal text-zinc-500 line-clamp-2">{{ .Params.description }}</p>
 

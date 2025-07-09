@@ -21,7 +21,7 @@ In the vast expanse of the cosmos, `there` are few objects as mysterious and awe
 {{< picture
   process="fill 480x270"
   lqip="500x webp q80"
-  loading="eager"
+  loading="lazy"
   fetchpriority="high"
   width="320"
   sizes="75vw"

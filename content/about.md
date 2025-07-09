@@ -3,6 +3,7 @@ title: "About"
 date: 2023-10-06T20:37:29+07:00
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 draft: false
+hideAutor: true
 ---
 
 **Pehtheme Hugo** is your gateway to the mysteries and wonders of the universe. We are a passionate community of space enthusiasts, scientists, and stargazers dedicated to sharing the awe-inspiring beauty and profound knowledge of the cosmos.

@@ -5,13 +5,21 @@
 [[mounts]]
   source = "static"
   target = "static"
+
 ## assets
-[[mounts]]
-  source = "node_modules/@thulite/images/assets"
-  target = "assets"
 [[mounts]]
   source = "assets"
   target = "assets"
+[[mounts]]
+  source = "node_modules/flexsearch/dist"
+  target = "assets"
+[[mounts]]
+  source = "node_modules/lazysizes"
+  target = "assets"
+[[mounts]]
+  source = "node_modules/@thulite/images/assets"
+  target = "assets"
+
 ## layouts
 [[mounts]]
   source = "node_modules/@thulite/images/layouts"

@@ -3,6 +3,7 @@ title: Contacts
 date: 2025-07-08T16:07:28+03:00
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 draft: false
+hideAutor: true
 ---
 
 Join the Telegram channel for updates, support, and real ad insights.

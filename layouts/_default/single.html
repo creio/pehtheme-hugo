@@ -15,8 +15,8 @@
 
       </div>
       
+      {{ if not .Params.hideAutor -}}
       <div id="writer" class="flex items-center space-x-4">
-
         {{- $name := .Site.Params.Author.name -}}
 
         {{- with $avatar := resources.Get .Site.Params.Author.avatar }}
@@ -26,7 +26,6 @@
         {{ end -}}
         
         <ul class="flex items-center space-x-4 flex-nowrap whitespace-nowrap overflow-x-auto">
-          
           <li class="font-semibold my-2">{{ .Site.Params.Author.name }}</li>
           
           {{/* <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
@@ -38,10 +37,9 @@
           <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
             {{ .ReadingTime }} min read
           </li>
-
         </ul>
-
       </div>
+      {{ end -}}
       
     </header>
 
@@ -68,9 +66,11 @@
     </div>
 
     <!-- Оверлей для зума -->
-    <div class="zoom-overlay" onclick="closeZoom()">
-      <img src="" alt="zoom img" class="zoomed-image">
-      <button class="zoom-close">×</button>
+    <div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom()">
+      <div class="zoom-content">
+        <img src="" alt="" class="zoomed-image">
+        <button class="zoom-close" onclick="closeZoom(event)">×</button>
+      </div>
     </div>
 
     <footer id="content-footer" class="not-prose">

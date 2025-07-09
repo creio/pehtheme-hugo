@@ -2,6 +2,7 @@
 	<a class="insert-link" href="{{ .Permalink }}"></a>
 	<figure class="basis-1/3 aspect-square overflow-hidden rounded-2xl bg-zinc-100">
 
+    {{ $page := . }}
 		{{- if .Params.image }}
 
 		  {{- if (strings.HasPrefix .Params.image "http") }}
@@ -11,8 +12,20 @@
 		  {{- else }}
 
 			{{- with $imglist := resources.Get .Params.image -}}
-			  {{- $imglist := $imglist.Crop "250x250 Center" -}}
-			  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imglist.Permalink }}" alt="{{ $.Name }}" width="{{ $imglist.Width }}" height="{{ $imglist.Height }}">
+        {{- $opts := dict
+          "page" $page
+          "src" $imglist.RelPermalink
+          "sizes" "auto"
+          "formats" (slice "webp" "jpeg")
+          "process" "fill 250x250"
+          "lqip" "250x webp"
+          "decoding" "auto"
+          "fetchpriority" "auto"
+          "loading" "lazy"
+          "alt" $.Name
+          "class" "object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer"
+        }}
+        {{- partial "img" $opts }}
 			{{- end }}
 
 		  {{- end }}

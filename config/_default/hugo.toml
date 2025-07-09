@@ -1,5 +1,6 @@
 baseURL = 'https://pehtheme-ads.netlify.app/'
 languageCode = 'en-us'
+defaultContentLanguage = "en"
 title = 'RocketMyAds'
 theme = 'pehtheme-hugo'
 
