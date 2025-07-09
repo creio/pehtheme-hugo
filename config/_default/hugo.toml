@@ -31,12 +31,6 @@ disqusShortname = '' # <- Get form here : https://disqus.com
   #   pageRef = '/tags/space/'
   #   weight = 25
 
-[sitemap]
-  changefreq = "weekly"
-  disable = false
-  filename = "sitemap.xml"
-  priority = 0.8
-
 [imaging]
   anchor = "Center"
   bgColor = "#ffffff"
