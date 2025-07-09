@@ -11,7 +11,6 @@ module.exports = {
         './content/**/*.md',
       ],
       safelist: [
-        'lazyloaded',
         'table',
         'thead',
         'tbody',
@@ -24,6 +23,7 @@ module.exports = {
         'container-fluid',
         'offcanvas-backdrop',
         'img-fluid',
+        'lazyloaded',
         'lazyload',
         'blur-up',
         'figcaption',

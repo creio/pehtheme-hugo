@@ -18,9 +18,24 @@ In the vast expanse of the cosmos, `there` are few objects as mysterious and awe
 
 ## Black Holes: What and Why?
 
+{{< picture
+  process="fill 480x270"
+  lqip="500x webp q80"
+  loading="eager"
+  fetchpriority="high"
+  width="320"
+  sizes="75vw"
+  formats="webp, jpeg"
+  class="rounded-lg"
+  src="images/nasa-rTZW4f02zY8-unsplash.jpg"
+  alt="A bird with a little fish in its mouth"
+>}}
+
 Before delving deeper, let's understand what a black hole actually is. Black holes are the remnants of massive stars that have undergone a supernova explosion. When these stars collapse under their own gravity, they become incredibly dense, with gravity so strong that not even light can escape their grasp.
 
 ## The Beauty of Darkness
+
+![nasa](/images/nasa-rTZW4f02zY8-unsplash.jpg)
 
 We often imagine black holes as menacing objects that mercilessly devour anything that comes near them. However, in reality, black holes possess their own kind of beauty. They warp the fabric of spacetime around them, creating astonishing phenomena such as gravitational lensing and relativistic effects.
 

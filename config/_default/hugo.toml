@@ -7,19 +7,15 @@ summaryLength = '20' # <- 20 words are approximately 160 characters
 googleAnalytics = '' # <- Your GA-4
 disqusShortname = '' # <- Get form here : https://disqus.com
 
-[params]
-  # Meta description, not exceeding 160 characters, used for the meta description within the HTML head
-  description = 'Pehtheme Hugo Lite: A minimalist Hugo theme, built with TailwindCSS, for efficient performance and minimalism.'
-  mainSections = 'posts'
-
-[author]
-  name = 'Anthony Arphan'
-  bio = 'Debitis assumenda esse dignissimos aperiam delectus maxime tenetur repudiandae dolore'
-  avatar = '/images/nasa-astronaut-unsplash.jpg'
-  twitter = 'https://twitter.com/insertapps'
-
 [pagination]
   pagerSize = 6 # <- Set the desired number of posts per page
+
+[imaging]
+  anchor = "Center"
+  bgColor = "#ffffff"
+  hint = "photo"
+  quality = 85
+  resampleFilter = "Lanczos"
 
 [menu] # Menu management
   # [[menu.main]]

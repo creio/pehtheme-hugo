@@ -60,18 +60,3 @@ rel  = "sitemap"
     [[related.indices]]
     name = "date"
     weight = 50
-
-[module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.147.9"
-    max = ""
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-  [[module.mounts]]
-    source = "static"
-    target = "static"
-  [[module.mounts]]
-    source = "layouts"
-    target = "layouts"

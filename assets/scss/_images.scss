@@ -1,0 +1,26 @@
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+img, picture {
+  font-size: 0;
+}
+
+img[data-sizes="auto"] {
+  display: block;
+}
+
+.blur-up {
+  filter: blur(5px);
+  transition: filter 400ms;
+}
+
+.lazyload.blur-up {
+  filter: unset;
+}
+
+figcaption {
+  font-style: italic;
+  text-align: center;
+}

@@ -32,5 +32,8 @@
     "purgecss-whitelister": "^2.4",
     "shx": "^0.3.3",
     "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "@thulite/images": "^3.3.1"
   }
 }

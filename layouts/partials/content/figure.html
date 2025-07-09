@@ -1,0 +1,111 @@
+{{ $fillImage := .Scratch.Get "fillImage" }}
+{{ if not $fillImage -}}
+  {{ $fillImage = site.Params.fillImage }}
+{{ end -}}
+
+{{ $orImage := resources.GetMatch .Params.Image }}
+{{ $image := resources.GetMatch .Params.Image }}
+
+{{ if .IsHome -}}
+  {{ $image = resources.Get (printf "%s%s" "images/" site.Params.profileImage) }}
+{{ else if not $image -}}
+  {{ $image = resources.Get (printf "%s%s" "images/" site.Params.defaultImage) }}
+{{ end -}}
+
+{{ $image = $image.Fill $fillImage }}
+{{ $quality := site.Params.quality | default 85 }}
+{{ $webp := $image.Resize (printf "%dx%d webp q%d" $image.Width $image.Height $quality) -}}
+{{ $lqip := $image.Resize (printf "%dx webp q%d" $image.Width $quality) -}}
+
+{{ $imgSrc := "" -}}
+{{ $imgSrcSet := slice -}}
+
+{{ $widths := cond (gt $image.Height $image.Width)
+      (site.Params.portraitPhotoWidths | default (slice 800 600 400))
+      (site.Params.landscapePhotoWidths | default (slice 1200 800 400)) }}
+
+{{ range $widths }}
+  {{/* Проверяем, что запрошенная ширина не больше оригинала */}}
+  {{ if le . $image.Width }}
+    {{ $resized := $image.Resize (printf "%dx webp q85" .) }}
+    {{ if not $imgSrc }}{{ $imgSrc = $resized.RelPermalink }}{{ end }}
+    {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $resized.RelPermalink .) }}
+    {{/* Debug: Generated size - {{ . }}w: {{ $resized.RelPermalink }} */}}
+  {{ else }}
+    {{/* Используем оригинал, если запрошенный размер больше */}}
+    {{ if not $imgSrc }}{{ $imgSrc = $image.RelPermalink }}{{ end }}
+    {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $image.RelPermalink $image.Width) }}
+    {{/* Debug: Using original for {{ . }}w */}}
+  {{ end }}
+{{ end }}
+
+{{ $imgSrcSet = delimit $imgSrcSet ", " }}
+
+<div class="zoom-container" onclick="zoomImage(this)">
+{{ if gt $image.Width site.Params.smallLimit -}}
+<picture>
+    <source media="(min-width: 901px)" srcset="{{ $webp.Permalink }}" type="image/webp">
+    {{ range $widths -}}
+      {{ $webpUrl := (printf "%dx webp" . | $image.Resize).Permalink -}}
+      <source media="(max-width: {{ . }}px)" srcset="{{ $webpUrl }}" type="image/webp">
+    {{ end -}}
+    <img class="rounded-lg figure-img img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqip.Permalink }}" data-srcset="{{ $imgSrcSet }}" data-original="{{ $orImage.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
+    <noscript><img class="rounded-lg figure-img img-fluid" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}"></noscript>
+</picture>
+{{ else -}}
+<picture>
+    <source srcset="{{ $webp.Permalink }}" type="image/webp">
+    <img class="img-fluid lazyload blur-up" src="{{ $lqip.Permalink }}" data-src="{{ $image.Permalink }}" data-original="{{ $orImage.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
+</picture>
+{{ end -}}
+</div>
+
+<script>
+// Функция зума
+function zoomImage(element) {
+  const originalSrc = element.querySelector('img').dataset.original;
+  const overlay = document.querySelector('.zoom-overlay');
+  const zoomedImg = overlay.querySelector('img');
+  zoomedImg.src = originalSrc;
+  zoomedImg.alt = element.querySelector('img').alt;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  // Добавляем обработчик ESC
+  document.addEventListener('keydown', handleKeyPress);
+}
+// Закрытие зума
+function closeZoom() {
+  document.querySelector('.zoom-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', handleKeyPress);
+}
+// Обработчик клавиши ESC
+function handleKeyPress(e) {
+  if (e.key === 'Escape') {
+    closeZoom();
+  }
+}
+</script>
+
+<style>
+.zoom-container { cursor: zoom-in; }
+.zoom-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.zoom-overlay.active { display: flex; }
+.zoomed-image { max-width: 90%; max-height: 90%; }
+.zoom-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+</style>
