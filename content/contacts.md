@@ -14,4 +14,4 @@ Telegram [@fbsmash_store](https://t.me/fbsmash_store)
 
 Subscribe to get rare updates, private drops, and real talk about ad launches — straight to your inbox.
 
-*ФОРМА*
+{{< subscribe-form >}}
