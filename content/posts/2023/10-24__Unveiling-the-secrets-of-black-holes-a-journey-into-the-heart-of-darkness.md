@@ -1,7 +1,6 @@
 ---
 title: "Unveiling the Secrets of Black Holes: A Journey into the Heart of Darkness"
 date: 2023-10-04T22:11:36+07:00
-slug: /unveiling-the-secrets-of-black-holes/
 description: Exploring the mysteries of black holes, the enigmatic cosmic phenomena.
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 caption: Photo by Nadine Shaabana on Unsplash.
@@ -12,6 +11,11 @@ tags:
   - space
   - relativity
 draft: false
+seo:
+  title: "Custom Social Title"
+  description: "Custom social description that will be used for both OpenGraph and Twitter"
+  canonical: "/nadine-shaabana-ZPP-zP8HYG0-unsplash" # custom canonical URL (optional)
+  robots: "noindex, nofollow" # custom robot tags (optional)
 ---
 
 In the vast expanse of the cosmos, `there` are few objects as mysterious and awe-inspiring as black holes. These enigmatic cosmic phenomena, once thought of as nothing more than theoretical curiosities, have now become a central focus of astronomical research. In this article, we embark on a journey deep into the heart of darkness, unraveling some of the secrets that lie within.
@@ -35,7 +39,7 @@ Before delving deeper, let's understand what a black hole actually is. Black hol
 
 ## The Beauty of Darkness
 
-![nasa](/images/nasa-rTZW4f02zY8-unsplash.jpg)
+![nasa](/images/nasa-rTZW4f02zY8-unsplash.jpg 'lorem')
 
 We often imagine black holes as menacing objects that mercilessly devour anything that comes near them. However, in reality, black holes possess their own kind of beauty. They warp the fabric of spacetime around them, creating astonishing phenomena such as gravitational lensing and relativistic effects.
 

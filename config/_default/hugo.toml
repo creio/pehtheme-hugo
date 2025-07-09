@@ -1,8 +1,10 @@
+theme = 'pehtheme-hugo'
 baseURL = 'https://pehtheme-ads.netlify.app/'
 languageCode = 'en-us'
 defaultContentLanguage = "en"
+disableHugoGeneratorInject = true
+enableRobotsTXT = true
 title = 'RocketMyAds'
-theme = 'pehtheme-hugo'
 
 summaryLength = '20' # <- 20 words are approximately 160 characters
 googleAnalytics = '' # <- Your GA-4
@@ -10,13 +12,6 @@ disqusShortname = '' # <- Get form here : https://disqus.com
 
 [pagination]
   pagerSize = 6 # <- Set the desired number of posts per page
-
-[imaging]
-  anchor = "Center"
-  bgColor = "#ffffff"
-  hint = "photo"
-  quality = 85
-  resampleFilter = "Lanczos"
 
 [menu] # Menu management
   # [[menu.main]]
@@ -35,3 +30,16 @@ disqusShortname = '' # <- Get form here : https://disqus.com
   #   name = 'Taxonomy'
   #   pageRef = '/tags/space/'
   #   weight = 25
+
+[sitemap]
+  changefreq = "weekly"
+  disable = false
+  filename = "sitemap.xml"
+  priority = 0.8
+
+[imaging]
+  anchor = "Center"
+  bgColor = "#ffffff"
+  hint = "photo"
+  quality = 85
+  resampleFilter = "Lanczos"
