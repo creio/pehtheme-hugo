@@ -1,8 +1,8 @@
 ---
 title: "Galactic Marvels: The Most Spectacular Nebulas in the Cosmos"
-date: 2023-09-24T11:15:17+07:00
-slug: /galactic-marvels/
 description: galactic marvels the most spectacular nebulas in the cosmos
+date: 2023-09-24T11:15:17+07:00
+# slug: /galactic-marvels/
 image: images/nasa-rTZW4f02zY8-unsplash.jpg
 caption: Photo by Nasa on Unsplash
 categories:
@@ -11,7 +11,8 @@ tags:
   - nebula
   - cosmic
   - space
-draft: false
+seo: ## SEO (@thulite/seo) https://seo.thulite.io/
+  images: ["cover-nasa-rTZW4f02zY8-unsplash.jpg"]
 ---
 
 In the vast expanse of the cosmos, one cannot help but be captivated by the breathtaking beauty of nebulae. These celestial marvels are often hidden in the depths of space, waiting to be discovered and admired by astronomers and space enthusiasts alike. In this article, we will embark on a cosmic journey to explore some of the most spectacular nebulas in the cosmos, shedding light on their unique features and the mysteries they hold.

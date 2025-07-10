@@ -1,8 +1,88 @@
+title = 'RocketMyAds'
+baseURL = 'https://pehtheme-ads.netlify.app/'
+languageCode = 'en-us'
+defaultContentLanguage = "en"
+disableHugoGeneratorInject = true
+enableRobotsTXT = true
+
+summaryLength = '20' # <- 20 words are approximately 160 characters
+googleAnalytics = '' # <- Your GA-4
+disqusShortname = '' # <- Get form here : https://disqus.com
+
+[menu] # Menu management
+  # [[menu.main]]
+  #   name = 'Home'
+  #   pageRef = '/'
+  #   weight = 10
+  [[menu.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 15
+  [[menu.main]]
+    name = 'Contacts'
+    pageRef = '/contacts'
+    weight = 20
+  # [[menu.main]]
+  #   name = 'Taxonomy'
+  #   pageRef = '/tags/space/'
+  #   weight = 25
+
+[pagination]
+  pagerSize = 6 # <- Set the desired number of posts per page
+
+[related]
+  threshold = 50
+  includeNewer = true
+  toLower = false
+    [[related.indices]]
+    name = "categories"
+    weight = 100
+    [[related.indices]]
+    name = "tags"
+    weight = 80
+    [[related.indices]]
+    name = "date"
+    weight = 50
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[permalinks]
+  posts = "/posts/:slugorcontentbasename/"
+
+[caches]
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = "10s"
+
+[imaging]
+  anchor = "Center"
+  bgColor = "#ffffff"
+  hint = "photo"
+  quality = 85
+  resampleFilter = "Lanczos"
+
 # add redirects/headers
 [outputs]
 home = ["HTML", "RSS", "REDIRECTS", "HEADERS", "SITEMAP"]
 page = ["HTML", "RSS", "REDIRECTS", "HEADERS", "SITEMAP"]
 section = ["HTML", "RSS", "SITEMAP"]
+
+# add output format for section sitemap.xml
+[outputFormats.SITEMAP]
+mediaType = "application/xml"
+baseName = "sitemap"
+isHTML = false
+isPlainText = true
+noUgly = true
+rel  = "sitemap"
+
+[sitemap]
+  changefreq = "weekly"
+  disable = false
+  filename = "sitemap.xml"
+  priority = 0.5
 
 # remove .{ext} from text/netlify
 [mediaTypes."text/netlify"]
@@ -23,46 +103,5 @@ baseName = "_headers"
 isPlainText = true
 notAlternative = true
 
-# add output format for section sitemap.xml
-[outputFormats.SITEMAP]
-mediaType = "application/xml"
-baseName = "sitemap"
-isHTML = false
-isPlainText = true
-noUgly = true
-rel  = "sitemap"
-
-[sitemap]
-  changefreq = "weekly"
-  disable = false
-  filename = "sitemap.xml"
-  priority = 0.5
-
-[caches]
-  [caches.getjson]
-    dir = ":cacheDir/:project"
-    maxAge = "10s"
-
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-
-[permalinks]
-  posts = "/posts/:slugorcontentbasename/"
-
 [minify.tdewolff.html]
   keepWhitespace = false
-
-[related]
-  threshold = 50
-  includeNewer = true
-  toLower = false
-    [[related.indices]]
-    name = "categories"
-    weight = 100
-    [[related.indices]]
-    name = "tags"
-    weight = 80
-    [[related.indices]]
-    name = "date"
-    weight = 50

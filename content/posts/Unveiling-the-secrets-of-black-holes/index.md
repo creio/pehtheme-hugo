@@ -1,6 +1,6 @@
 ---
 title: "Unveiling the Secrets of Black Holes: A Journey into the Heart of Darkness"
-date: 2023-10-04T22:11:36+07:00
+date: 2024-10-04T22:11:36+07:00
 description: Exploring the mysteries of black holes, the enigmatic cosmic phenomena.
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 caption: Photo by Nadine Shaabana on Unsplash.
@@ -11,11 +11,12 @@ tags:
   - space
   - relativity
 draft: false
-seo:
+seo: ## SEO (@thulite/seo) https://seo.thulite.io/
   title: "Custom Social Title"
   description: "Custom social description that will be used for both OpenGraph and Twitter"
-  canonical: "/nadine-shaabana-ZPP-zP8HYG0-unsplash" # custom canonical URL (optional)
+  canonical: "/custom-nadine-unsplash" # custom canonical URL (optional)
   robots: "noindex, nofollow" # custom robot tags (optional)
+  images: ["cover.jpg"]
 ---
 
 In the vast expanse of the cosmos, `there` are few objects as mysterious and awe-inspiring as black holes. These enigmatic cosmic phenomena, once thought of as nothing more than theoretical curiosities, have now become a central focus of astronomical research. In this article, we embark on a journey deep into the heart of darkness, unraveling some of the secrets that lie within.

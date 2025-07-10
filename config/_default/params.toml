@@ -8,7 +8,7 @@ images = ["default-placeholder.png"]
   twitter = "mdo"
   facebook_admin = ""
 
-# SEO (@thulite/seo)
+# SEO (@thulite/seo) https://seo.thulite.io/
 [seo]
   [seo.title]
     separator = "" # "|" (default)
