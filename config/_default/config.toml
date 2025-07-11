@@ -66,8 +66,10 @@ disqusShortname = '' # <- Get form here : https://disqus.com
 # add redirects/headers
 [outputs]
 home = ["HTML", "RSS", "REDIRECTS", "HEADERS", "SITEMAP"]
-page = ["HTML", "RSS", "REDIRECTS", "HEADERS", "SITEMAP"]
-section = ["HTML", "RSS", "SITEMAP"]
+page = ["HTML"]
+section = ["HTML", "RSS"]
+taxonomy = ["HTML"]
+term = ["HTML"]
 
 # add output format for section sitemap.xml
 [outputFormats.SITEMAP]

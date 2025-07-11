@@ -28,39 +28,9 @@ To assess the performance of your website using Pehtheme Hugo, utilize the PageS
 
 ## Installation
 
-To get started with Pehtheme Hugo, follow these steps:
+To get started with [Pehtheme Hugo](https://github.com/fauzanmy/pehtheme-hugo), follow these steps:
 
-1. Install Hugo and create a new site. For detailed instructions, refer to [Hugo's Quick Start Guide](https://gohugo.io/getting-started/quick-start/).
-
-2. Add Pehtheme Hugo to your project:
-
-    ```bash
-    $ git clone https://github.com/fauzanmy/pehtheme-hugo.git
-    ```
-
-3. Simply copy the following 2 folders and 1 content from the `exampleSite` directory to the root of your project:
-
-    ```bash
-    exampleSite/
-    ├── assets/
-    ├── content/
-    └── hugo.toml
-    ``` 
-
-4. Start Hugo:
-
-    ```bash
-    hugo server
-    ```
-
-```bash
-# instal deps
-npm install
-# server
-npm run dev
-# build
-npm run build
-```
+Install Hugo and create a new site. For detailed instructions, refer to [Hugo's Quick Start Guide](https://gohugo.io/getting-started/quick-start/).
 
 ## Configuration
 
@@ -68,45 +38,40 @@ npm run build
 config/
 ```
 
-You can configure the following settings for your Hugo project
- by adding or modifying these lines in your config file `hugo.toml`:
-
-summaryLength = 20 # (approximately 160 characters for 20 words)
-
-[services]
-  [services.googleAnalytics]
-    id = 'G-MEASUREMENT_ID' # (Your GA-4 analytics code)
-
-  [services.disqus]
-    shortname = 'shortname' # (Your Disqus shortname)
-
-[pagination]
-  pagerSize = 10 # (Set the desired number of home posts per page)
-
 ## Custom Theme
 
-### Ensure you have NodeJS installed on your desktop.
+### Ensure you have NodeJS installed on your desktop v20.19.3.
 
-    ```bash
-        ├── package.json
-        ├── postcss.config.js
-        └── tailwind.config.js
-    ``` 
+```bash
+├── package.json
+├── postcss.config.js
+└── tailwind.config.js
+```
 
 ### Run the following command to install necessary dependencies:
 
-    ```bash
-    npm install
-    ```
+```bash
+# instal deps
+npm install
+```
 
 ### Customize the theme with Tailwind CSS using the following command:
 
-    ```bash
-    npm run dev:generate
-    ```
+```bash
+npm run dev:generate
+```
 
 ### To build the website, execute the command:
 
-    ```bash
-    npm run build:generate
-    ```
+```bash
+npm run build:generate
+```
+
+## Start Hugo
+
+```bash
+# server
+npm run dev
+# build
+npm run build
+```
